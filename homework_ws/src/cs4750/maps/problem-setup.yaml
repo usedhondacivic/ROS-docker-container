@@ -1,0 +1,6 @@
+image: problem-setup.pgm
+resolution: 0.05000
+origin: [-1, -1, 0.000000]
+negate: 0
+occupied_thresh: 0.1
+free_thresh: 0.09

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find interbotix_xsarm_descriptions)/urdf/wx250s.urdf.xacro" />
+
+
+    <material name="white">
+        <color rgba="0.8 0.8 0.8 1"/>
+    </material>
+
+    <link name="floor">
+        <visual>
+            <origin xyz="0 0 -0.1" rpy="0 0 0" />
+            <geometry>
+                <box size="2.5 2.5 0.16" />
+            </geometry>
+            <material name="white"/>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+            <geometry>
+                <box size="2.5 2.5 0.16" />
+            </geometry>
+            <material name="black">
+                <color rgba="0.6 0.6 0.6 1"/>
+            </material>
+        </collision>
+    </link>
+
+    <joint name="floor" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="wx250s/base_link"/>
+        <child link="floor"/>
+    </joint>
+
+    <link name="table">
+        <visual>
+            <origin xyz="0.1 -0.65 -0.01" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://arm_planning/meshes/table.stl" scale="0.785 0.785 0.78"/>
+            </geometry>
+            <material name="brown">
+                <color rgba="0.55 0.4 0.28 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.1 -0.65 -0.01" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://arm_planning/meshes/table.dae" scale="0.785 0.785 0.78"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="table_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="wx250s/base_link"/>
+        <child link="table"/>
+    </joint>
+
+</robot>

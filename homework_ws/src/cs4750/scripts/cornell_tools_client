@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+. "$SOURCES_ROOT/common/util.bash"
+case "$CORNELL_TOOLS_SHELL_FLAVOR" in
+    zsh) source "$SOURCES_ROOT/common/modes.zsh";;
+    bash) source "$SOURCES_ROOT/common/modes.bash";;
+esac
+
+sim-mode

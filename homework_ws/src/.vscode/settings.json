@@ -1,0 +1,30 @@
+{
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/hw1_introduction/src",
+        "${workspaceFolder}/hw2_kinematics/arm_kinematics/src",
+        "${workspaceFolder}/hw2_kinematics/car_kinematics/src",
+        "${workspaceFolder}/hw3_state_estimation/arm_state_estimation/src",
+        "${workspaceFolder}/hw3_state_estimation/car_state_estimation/src",
+        "${workspaceFolder}/hw4_planning/car_planning/src",
+        "${workspaceFolder}/hw4_planning/planning/src",
+        "${workspaceFolder}/hw5_control/arm_controller/src",
+        "${workspaceFolder}/hw5_control/car_controller/src",
+        "${workspaceFolder}/final_projects/arm_final_project/src",
+        "${workspaceFolder}/final_projects/car_final_project/src",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+    ],
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/hw1_introduction/src",
+        "${workspaceFolder}/hw2_kinematics/arm_kinematics/src",
+        "${workspaceFolder}/hw2_kinematics/car_kinematics/src",
+        "${workspaceFolder}/hw3_state_estimation/arm_state_estimation/src",
+        "${workspaceFolder}/hw3_state_estimation/car_state_estimation/src",
+        "${workspaceFolder}/hw4_planning/car_planning/src",
+        "${workspaceFolder}/hw4_planning/planning/src",
+        "${workspaceFolder}/hw5_control/arm_controller/src",
+        "${workspaceFolder}/hw5_control/car_controller/src",
+        "${workspaceFolder}/final_projects/arm_final_project/src",
+        "${workspaceFolder}/final_projects/car_final_project/src",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

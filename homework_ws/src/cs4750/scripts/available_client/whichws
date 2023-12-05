@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+###
+# Prints the path to the root of the currently sourced workspace
+###
+
+if [[ -z "$CMAKE_PREFIX_PATH" ]]; then
+    exit 1
+fi
+
+# Read in the CMake path. The first path in this list is the latest sourced workspace
+IFS=':' read -ra paths <<< "$CMAKE_PREFIX_PATH"
+
+# Resolve the path, in case it's a symlink
+current=$(readlink -f $paths[0])
+# The path is actually to the devel folder, so we'll pop up one level
+current=$(dirname $current)
+
+# If we found one, print the path. Otherwise exit
+if [[ ! -z "$current" ]]; then
+    echo $current
+else
+    exit 1
+fi

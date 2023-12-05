@@ -1,0 +1,9 @@
+free_thresh: 0.196
+image: cse_006.pgm
+negate: 0
+occupied_thresh: 0.65
+origin:
+- -2.5874989999999993
+- -7.912499
+- 0.0
+resolution: 0.025

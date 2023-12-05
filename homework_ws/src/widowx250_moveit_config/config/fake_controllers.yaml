@@ -1,0 +1,19 @@
+controller_list:
+  - name: fake_widowx250_manipulator_controller
+    type: $(arg execution_type)
+    joints:
+      - waist
+      - shoulder
+      - elbow
+      - forearm_roll
+      - wrist_pitch
+      - wrist_roll
+  - name: fake_End_Effector_controller
+    type: $(arg execution_type)
+    joints:
+      - left_finger
+initial:  # Define initial robot poses.
+#  - group: widowx250_manipulator
+#    pose: home
+
+  []

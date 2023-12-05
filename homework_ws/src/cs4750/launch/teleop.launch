@@ -1,0 +1,46 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+    <!-- Set to 1 if you want to run the map_server -->
+    <arg name="map_server" value = "1" />
+    <!-- We take a map path either as an environment variable or an argument.
+         The environment variable has precedence. -->
+    <arg name="_env_map" default="$(optenv MAP)" />
+    <arg name="map" default="$(find mushr_sim)/maps/sandbox.yaml"/>
+    <arg name="car_name" default="car" />
+    <arg name="fake_localization" default="true"/>
+    <arg name="initial_x" default="0"/>
+    <arg name="initial_y" default="0"/>
+    <arg name="initial_theta" default="0"/>
+    <!-- Having this option makes the name of the launch file seem weird. Should rename to "simulation.launch" -->
+    <arg name="teleop" default="true"/>
+
+    <!-- Launch  map server-->
+    <include  if="$(arg map_server)" file="$(find mushr_sim)/launch/map_server.launch">
+        <arg name="map" value="$(eval _env_map if _env_map else map)" />
+    </include>
+
+    <!-- Launch car -->
+
+    <remap from="/$(arg car_name)/initialpose" to="/initialpose" />
+
+    <include file="$(find mushr_sim)/launch/single_car_sim.launch">
+        <!-- Could be racecar-mit, racecar-uw-tx2, or racecar-uw-nano -->
+        <arg name="racecar_version" value="racecar-uw-nano" />
+         <!-- The colors of the racecar, should be of the form "-<platform_color>-<inset_color>" -->
+         <!-- An empty string will result in the default URDF -->
+         <!-- Check CMakeLists.txt of mushr_description for appropriate values -->
+        <arg name="racecar_color" value="" />
+
+        <arg name="car_name" value="$(arg car_name)" />
+        <arg name="initial_x" value="$(arg initial_x)"/>
+        <arg name="initial_y" value="$(arg initial_y)"/>
+        <arg name="initial_theta" value="$(arg initial_theta)"/>
+        <arg name="use_tf_prefix" value="false" />
+        <arg name="fake_localization" value="$(arg fake_localization)" />
+        <arg name="teleop" value="$(arg teleop)" />
+    </include>
+
+
+
+</launch>

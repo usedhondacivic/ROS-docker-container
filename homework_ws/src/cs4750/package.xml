@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>cs4750</name>
+  <version>0.0.0</version>
+  <description>The cs4750 package</description>
+
+  <author>Brian Hou</author>
+  <author>Gilwoo Lee</author>
+  <author>Kay Ke</author>
+  <author>Johan Michalove</author>
+  <author>Matthew Rockett</author>
+  <author>Matt Schmittle</author>
+  <author>Nick Walker</author>
+
+  <maintainer email="mushr@cs.washington.edu">UW CSE Robotics Teaching Staff</maintainer>
+
+  <url>https://mushr.io/</url>
+
+  <license>Educational Use Only</license>
+
+  <test_depend>roslaunch</test_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>ackermann_msgs</exec_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>mushr_sim</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>tf_conversions</exec_depend>
+
+  <export>
+
+  </export>
+</package>

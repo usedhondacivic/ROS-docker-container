@@ -1,0 +1,36 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+    <!-- Set to 1 if you want to run the map_server -->
+    <arg name="map_server" value = "1" />
+    <!-- We take a map path either as an environment variable or an argument.
+         The environment variable has precedence. -->
+    <arg name="_env_map" default="$(optenv MAP)" />
+    <arg name="map" default="$(find mushr_sim)/maps/sandbox.yaml"/>
+    <arg name="car_name" default="car" />
+
+    <!-- Launch  map server-->
+    <group if="$(arg map_server)">
+        <include file="$(find mushr_sim)/launch/map_server.launch">
+            <arg name="map" value="$(eval _env_map if _env_map else map)" />
+        </include>
+    </group>
+
+    <!-- Launch car -->
+    <group ns="$(arg car_name)">
+        <remap from="/$(arg car_name)/initialpose" to="/initialpose" />
+
+        <include file="$(find mushr_sim)/launch/single_car.launch">
+            <!-- Could be racecar-mit, racecar-uw-tx2, or racecar-uw-nano -->
+            <arg name="racecar_version" value="racecar-uw-nano" />
+            <!-- The colors of the racecar, should be of the form "-<platform_color>-<inset_color>" -->
+            <!-- An empty string will result in the default URDF -->
+              <!-- Check CMakeLists.txt of mushr_description for appropriate values -->
+            <arg name="racecar_color" value="" />
+
+            <arg name="car_name" value="$(arg car_name)" />
+            <arg name="use_tf_prefix" value="false" />
+         </include>
+    </group>
+
+</launch>

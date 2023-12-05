@@ -1,0 +1,8 @@
+{
+    "name": "ros-noetic-dev",
+    "service": "ros_noetic_dev",
+    "dockerComposeFile": [
+        "../docker-compose.yml" // the docker compose file that we want to run
+    ],
+    "workspaceFolder": "/root/noetic-dev/ros/homework_ws/src/"
+}

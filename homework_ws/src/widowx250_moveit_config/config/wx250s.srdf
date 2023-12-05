@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="wx250s">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="widowx250_manipulator">
+        <joint name="waist"/>
+        <joint name="shoulder"/>
+        <joint name="elbow"/>
+        <joint name="forearm_roll"/>
+        <joint name="wrist_angle"/>
+        <joint name="wrist_rotate"/>
+    </group>
+    <group name="End_Effector">
+        <joint name="ee_gripper"/>
+        <joint name="left_finger"/>
+        <joint name="right_finger"/>
+    </group>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="widowx_end_effector" parent_link="wx250s/fingers_link" group="End_Effector"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="wx250s/base_link" link2="wx250s/shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/fingers_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/gripper_bar_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/gripper_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/gripper_prop_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/left_finger_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/right_finger_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/shoulder_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/ee_gripper_link" link2="wx250s/wrist_link" reason="Never"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/gripper_bar_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/gripper_link" reason="Never"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/gripper_prop_link" reason="Never"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/left_finger_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/right_finger_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/shoulder_link" reason="Never"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/fingers_link" link2="wx250s/wrist_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_bar_link" link2="wx250s/gripper_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/gripper_bar_link" link2="wx250s/gripper_prop_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/gripper_bar_link" link2="wx250s/left_finger_link" reason="Default"/>
+    <disable_collisions link1="wx250s/gripper_bar_link" link2="wx250s/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_bar_link" link2="wx250s/right_finger_link" reason="Default"/>
+    <disable_collisions link1="wx250s/gripper_bar_link" link2="wx250s/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_bar_link" link2="wx250s/wrist_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_link" link2="wx250s/gripper_prop_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/gripper_link" link2="wx250s/left_finger_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_link" link2="wx250s/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_link" link2="wx250s/right_finger_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_link" link2="wx250s/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_link" link2="wx250s/wrist_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/gripper_prop_link" link2="wx250s/left_finger_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_prop_link" link2="wx250s/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_prop_link" link2="wx250s/right_finger_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_prop_link" link2="wx250s/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/gripper_prop_link" link2="wx250s/wrist_link" reason="Never"/>
+    <disable_collisions link1="wx250s/left_finger_link" link2="wx250s/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/left_finger_link" link2="wx250s/right_finger_link" reason="Never"/>
+    <disable_collisions link1="wx250s/left_finger_link" link2="wx250s/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/left_finger_link" link2="wx250s/wrist_link" reason="Never"/>
+    <disable_collisions link1="wx250s/lower_forearm_link" link2="wx250s/right_finger_link" reason="Never"/>
+    <disable_collisions link1="wx250s/lower_forearm_link" link2="wx250s/upper_forearm_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/lower_forearm_link" link2="wx250s/wrist_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/right_finger_link" link2="wx250s/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/right_finger_link" link2="wx250s/wrist_link" reason="Never"/>
+    <disable_collisions link1="wx250s/shoulder_link" link2="wx250s/upper_arm_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/shoulder_link" link2="wx250s/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="wx250s/upper_arm_link" link2="wx250s/upper_forearm_link" reason="Adjacent"/>
+    <disable_collisions link1="wx250s/upper_forearm_link" link2="wx250s/wrist_link" reason="Never"/>
+</robot>
