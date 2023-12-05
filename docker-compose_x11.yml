@@ -1,36 +1,17 @@
-version: '2'
+version: '3'
 
-# Compose is kinda overkill for this, just simplifies the commandline machinery
 services:
-    ros_noetic_dev:
-        image: ros_noetic_dev
+    rosmaster:
+        image: ros_test
         build: .
-        container_name: ros_noetic_dev
-        # Allow X11 access for GUI apps
+        container_name: rosmaster
         environment:
-            #- DISPLAY=${DISPLAY}
-            - DISPLAY=novnc:0.0
-        # Mount the homework src directory and the X11 socket
+            - DISPLAY=${DISPLAY}
+            - QT_X11_NO_MITSHM=1
         volumes:
-            - ./homework_ws/src:/root/noetic-dev/ros/homework_ws/src
-            #- /tmp/.X11-unix:/tmp/.X11-unix
+            - /tmp/.X11-unix:/tmp/.X11-unix
+            - .:/root/noetic-dev/ros
+        network_mode: host
+        command: /bin/bash -c 'source /opt/ros/noetic/setup.bash && (roscore &) ; bash'
         stdin_open: true # docker run -i
         tty: true # docker run -t
-        depends_on:
-            - novnc
-        networks:
-            - x11
-        command: /bin/bash -c 'source /opt/ros/noetic/setup.bash && (roscore &) ; (bash && echo "hello")'
-    novnc:
-        image: theasp/novnc:latest
-        environment:
-            # Adjust to your screen size
-            - DISPLAY_WIDTH=1600
-            - DISPLAY_HEIGHT=968
-            - RUN_XTERM=no
-        ports:
-            - "8080:8080"
-        networks:
-            - x11
-networks:
-    x11:
