@@ -28,10 +28,9 @@ https://docs.docker.com/get-docker/
 
 7. Open a VSCode terminal (Terminal -> new terminal). It should say `lcl up` on the left hand side. Run `rosrun rviz rviz`.
 
-8. Visit http://localhost:8080/vnc.html to see the system GUI. It's recommended you only use this GUI to interact with GUI applications (RVis) and use the VSCode terminal to run your commands.
-It's much faster.
+8. Visit http://localhost:8080/vnc.html to see the system GUI. An RViz window should be open!
 
-9. You should see RViz open in your browser! Now you can copy your own homework files into homework_ws/src, and they will be immediately available within the container!
+9. Now you can copy your own homework files into homework_ws/src, and they will be immediately available within the container.
 
 Have a need for speed? noVNC is definitely slower than native apps (but still much better than the VMs because it's on your local network).
 You can instead use X11 forwarding to render the GUI apps natively, but it requires more configuration. See the X11 forwarding section below for details on the setup.
