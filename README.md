@@ -24,7 +24,9 @@ https://docs.docker.com/get-docker/
 
 5. Wait patiently, Docker is building your development environment. This step will take several minutes the first time, but will take less than a second on subsequent connections.
 
-6. Visit http://localhost:8080/vnc.html to see the system GUI. It's recommended you only use this GUI to interact with GUI applications (RVis) and use the VSCode terminal (Terminal -> new terminal) to run your commands.
+6. Open a VSCode terminal (Terminal -> new terminal). It should say `lcl up` on the left hand side. Run `rosrun rviz rviz`.
+
+7. Visit http://localhost:8080/vnc.html to see the system GUI. It's recommended you only use this GUI to interact with GUI applications (RVis) and use the VSCode terminal to run your commands.
 It's much faster.
 
 Have a need for speed? noVNC is definitely slower than native apps (but still much better than the VMs because it's on your local network).
