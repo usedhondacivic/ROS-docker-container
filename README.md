@@ -9,7 +9,7 @@ The container runs ROS Noetic and uses either [noVNC](https://novnc.com/info.htm
 # Compatability
 
 - [x] Linux (tested on Ubuntu 22.04.3 LTS x86_64, and used to complete all of the CS4750 projects)
-- [x] Windows (untested but should work. Let me know if you give it a shot)
+- [x] Windows (tested)
   - Watch out for Windows style line endings! If you modify files on Windows, the invisible new line characters will cause things to break in the Ubuntu container
   - You can change them back by using the button in the bottom right of VSCode that says CRLF, change it to LF
 - [x] Mac (untested but should work. Let me know if you give it a shot)
