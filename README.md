@@ -72,3 +72,6 @@ Unknown tag "material" in /robot[@name='robot']/link[@name='floor']/collision[1]
 [ERROR] [1701661925.869469500]: Pose frame 'wx250s/ee_gripper_link' does not exist.
 [ERROR] [1701661926.041593854]: Different number of names and positions in JointState message: 6, 0
 ```
+
+# Conclustion
+Thanks for reading, check out my other projects! https://michael-crum.com/
