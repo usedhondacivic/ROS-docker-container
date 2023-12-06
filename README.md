@@ -35,6 +35,10 @@ https://docs.docker.com/get-docker/
 Have a need for speed? noVNC is definitely slower than native apps (but still much better than the VMs because it's on your local network).
 You can instead use X11 forwarding to render the GUI apps natively, but it requires more configuration. See the X11 forwarding section below for details on the setup.
 
+# Debugging
+
+Break something in your config? No worries! Simply save you homework folders somewhere. Delete the ROS-docker-container folder, and follow the installation instructions again.
+
 # About the project
 
 ## Why?
@@ -62,7 +66,37 @@ Finally, VSCode integration is accomplished using the Dev Containers workflow. T
 
 # X11 forwarding
 
-Still working on documenting this, come back soon.
+Before trying this, read https://wiki.ros.org/docker/Tutorials/GUI to understand the risks associated with sharing your X11 server. I am using the "better option" at the end of option 1. If you understand the risks, using X11 forwarding is by far the best experience for running GUI apps. They appear just as any normal app would on your system.
+
+### Linux
+
+In a shell, run
+
+```
+xhost +local:`docker inspect --format='{{ .Config.Hostname }}' ros_noetic_dev`
+```
+
+This will add the ros_noetic_dev container to the list of allowed names, letting the container connect.
+
+In `.devcontainer/devcontainer.json`, comment out the normal docker compose file and uncomment the X11 docker compose file.
+
+```
+// "../docker-compose.yml" // the docker compose file that we want to run
+"../docker-compose_x11.yml" // docker compose for running with X11 forwarding
+```
+
+### Mac and Windows
+
+MacOS and Windows do not come with an X11 server by default. You will have to find and install one, then allow the docker container to connect to it.
+
+I have not tested any X11 servers for these systems, so you'll have to do your own research. Once you get the server set up, its much the same as linux:
+
+In `.devcontainer/devcontainer.json`, comment out the normal docker compose file and uncomment the X11 docker compose file.
+
+```
+// "../docker-compose.yml" // the docker compose file that we want to run
+"../docker-compose_x11.yml" // docker compose for running with X11 forwarding
+```
 
 # Known issues
 In the arm final project (F23 semester), I was unable to fix the following error:
@@ -75,10 +109,6 @@ Unknown tag "material" in /robot[@name='robot']/link[@name='floor']/collision[1]
 [ERROR] [1701661925.869469500]: Pose frame 'wx250s/ee_gripper_link' does not exist.
 [ERROR] [1701661926.041593854]: Different number of names and positions in JointState message: 6, 0
 ```
-
-# Debugging
-
-Break something in your config? No worries! Simply save you homework folders somewhere. Delete the ROS-docker-container folder, and follow the installation instructions again.
 
 # Conclusion
 Thanks for reading, check out my other projects! https://michael-crum.com/
