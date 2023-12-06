@@ -37,7 +37,7 @@ You can instead use X11 forwarding to render the GUI apps natively, but it requi
 
 # Debugging
 
-Break something in your config? No worries! Simply save you homework folders somewhere. Delete the ROS-docker-container folder, and follow the installation instructions again.
+Break something in your config? No worries! Simply save you homework folders somewhere, delete the ROS-docker-container folder, and follow the installation instructions again.
 
 # About the project
 
