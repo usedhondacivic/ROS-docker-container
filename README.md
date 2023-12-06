@@ -13,7 +13,7 @@ The container runs ROS Noetic and uses either [noVNC](https://novnc.com/info.htm
 - [x] Mac (untested but should work. Let me know if you give it a shot)
 
 # Quick install
-1. Clone this repository (dowload and unzip, or `git clone https://github.com/usedhondacivic/ROS-docker-container.git`)
+1. Clone this repository (dowload and unzip, or `git clone https://github.com/usedhondacivic/ROS-docker-container.git --config core.autocrlf=input`)
   
 2. Install docker for your system:
 https://docs.docker.com/get-docker/
