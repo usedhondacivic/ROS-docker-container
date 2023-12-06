@@ -12,7 +12,7 @@ services:
         # Mount the X11 socket
         volumes:
             - /tmp/.X11-unix:/tmp/.X11-unix
-            - .:/root/noetic-dev/ros
+            - ./homework_ws/src:/root/noetic-dev/ros/homework_ws/src
         network_mode: host
         command: /bin/bash -c 'source /opt/ros/noetic/setup.bash && (roscore &) ; bash'
         stdin_open: true # docker run -i
