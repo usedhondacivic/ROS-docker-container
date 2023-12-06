@@ -6,6 +6,8 @@ It's also a great way to use continue using ROS after you've completed the class
 
 The container runs ROS Noetic and uses either [noVNC](https://novnc.com/info.html) or [X11 forwarding](https://goteleport.com/blog/x11-forwarding/) for GUI apps (namely RVIZ).
 
+[Here's a demo of going from zero to running RViz on windows in under two minutes](https://www.youtube.com/watch?v=5HW2OjGDfr8)
+
 # Compatability
 
 - [x] Linux (tested on Ubuntu 22.04.3 LTS x86_64, and used to complete all of the CS4750 projects)
