@@ -8,7 +8,7 @@ The container runs ROS Noetic and uses either [noVNC](https://novnc.com/info.htm
 
 # Compatability
 
-- [x] Linux (tested on Ubuntu 22.04.3 LTS x86_64)
+- [x] Linux (tested on Ubuntu 22.04.3 LTS x86_64, and used to complete all of the CS4750 projects)
 - [x] Windows (untested but should work. Let me know if you give it a shot)
 - [x] Mac (untested but should work. Let me know if you give it a shot)
 
@@ -49,4 +49,24 @@ Containers create an isolated environment for building and running software.
 
 Docker is a popular software for creating, maintaining, and distributing containers, and is the one I used for this project.
 
+Checkout the `DockerFile` in the root of the project. In it are all the commands that are used to build the container. Every single dependency is stored in that file, and will stay the same unless you change them. The first line pulls the official Noetic ROS image, which contains the necessary version of Ubuntu and ROS for the project.
+
+The `DockerFile` is built using Docker Compose, a tool for using multiple containers at the same time. ROS is run in one container, noVNC in another, and the communication pathways are setup in `DockerCompose.yml`.
+
+Finally, VSCode integration is accomplished using the Dev Containers workflow. The file `.devcontainer/devcontainer.json` tells VSCode how to run the containers. When we request VSCode to attach to the container, it build the container for you and injects a VSCode server into the system. That server communicates back to your local VSCode install, allowing it to act as if you were running VSCode natively within the container environment.
+
 # X11 forwarding
+
+Still working on documenting this, come back soon.
+
+# Known issues
+In the arm final project (F23 semester), I was unable to fix the following error:
+```
+You can start planning now!
+
+Unknown tag "material" in /robot[@name='robot']/link[@name='floor']/collision[1]
+[INFO] [1701661907.915211]: The operating mode for the 'all' group was changed to position.
+[INFO] [1701661907.915965]: The operating mode for the 'arm' group was changed to position.
+[ERROR] [1701661925.869469500]: Pose frame 'wx250s/ee_gripper_link' does not exist.
+[ERROR] [1701661926.041593854]: Different number of names and positions in JointState message: 6, 0
+```
