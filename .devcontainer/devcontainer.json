@@ -3,6 +3,7 @@
     "service": "ros_noetic_dev",
     "dockerComposeFile": [
         "../docker-compose.yml" // the docker compose file that we want to run
+        // "../docker-compose_x11.yml" // docker compose for running with X11 forwarding
     ],
     "workspaceFolder": "/root/noetic-dev/ros/homework_ws/src/"
 }

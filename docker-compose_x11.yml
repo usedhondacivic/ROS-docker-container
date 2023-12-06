@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-    rosmaster:
+    ros_noetic_dev:
         image: ros_docker_x11
         build: .
         container_name: ros_docker_x11
