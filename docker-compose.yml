@@ -7,6 +7,7 @@ services:
         container_name: ros_noetic_dev
         environment:
             - DISPLAY=novnc:0.0
+        # Mount only homework/src as a volume, as it is the only place changes should be persisted.
         volumes:
             - ./homework_ws/src:/root/noetic-dev/ros/homework_ws/src
         stdin_open: true # docker run -i

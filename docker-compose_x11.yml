@@ -2,12 +2,14 @@ version: '3'
 
 services:
     rosmaster:
-        image: ros_test
+        image: ros_docker_x11
         build: .
-        container_name: rosmaster
+        container_name: ros_docker_x11
+        # ENV variables to tell Docker which display to forward to
         environment:
             - DISPLAY=${DISPLAY}
             - QT_X11_NO_MITSHM=1
+        # Mount the X11 socket
         volumes:
             - /tmp/.X11-unix:/tmp/.X11-unix
             - .:/root/noetic-dev/ros
