@@ -39,13 +39,7 @@ export MAKEFLAGS="-j$(nproc) $MAKEFLAGS"
 export LD_LIBRARY_PATH="/usr/lib:$LD_LIBRARY_PATH"
 
 #ROS Customization
-source /opt/ros/noetic/setup.bash
-source /root/noetic-dev/ros/interbotix_ws/devel/setup.bash
-source /root/noetic-dev/ros/dependencies_ws/devel/setup.bash
-source /root/noetic-dev/ros/homework_ws/devel/setup.bash
-
-
-# # export ROS_IP=$(echo `hostname -I | cut -d" " -f1`)
-# # if [ -z "$ROS_IP" ]; then
-# #         export ROS_IP=127.0.0.1
-# # fi
+source /opt/ros/noetic/setup.bash --extend
+source /root/noetic-dev/ros/interbotix_ws/devel/setup.bash --extend
+source /root/noetic-dev/ros/dependencies_ws/devel/setup.bash --extend
+source /root/noetic-dev/ros/homework_ws/devel/setup.bash --extend
