@@ -16,6 +16,8 @@ The container runs ROS Noetic and uses either [noVNC](https://novnc.com/info.htm
   - Make sure you clone the repo using `--config core.autocrlf=input`: `git clone https://github.com/usedhondacivic/ROS-docker-container.git --config core.autocrlf=input`
 - [x] Mac (untested but should work. Let me know if you give it a shot)
 
+This repo was last updated after the Fall '23 Semester! I cannot guarentee it will be up to date with the dependencies in the future, please create a pull request if you descover any issues.
+
 # Quick install
 1. Clone this repository (download and unzip, or `git clone https://github.com/usedhondacivic/ROS-docker-container.git --config core.autocrlf=input`)
   
