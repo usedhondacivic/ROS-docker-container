@@ -77,5 +77,9 @@ Unknown tag "material" in /robot[@name='robot']/link[@name='floor']/collision[1]
 [ERROR] [1701661926.041593854]: Different number of names and positions in JointState message: 6, 0
 ```
 
+# Debugging
+
+Break something in your config? No worries! Simply save you homework folders somewhere. Delete the ROS-docker-container folder, and follow the installation instructions again.
+
 # Conclusion
 Thanks for reading, check out my other projects! https://michael-crum.com/
