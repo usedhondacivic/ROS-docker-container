@@ -15,7 +15,7 @@ services:
             - novnc
         networks:
             - x11
-        command: /bin/bash -c 'source /opt/ros/noetic/setup.bash && (roscore &)'
+        command: /bin/bash -c 'source /opt/ros/noetic/setup.bash && (roscore &); bash'
     novnc:
         image: theasp/novnc:latest
         environment:
