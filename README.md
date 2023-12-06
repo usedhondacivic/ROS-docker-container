@@ -1,7 +1,7 @@
 # Summary
 This project is targeted for CS4750: Foundations of Robotics at Cornell University (it's a really cool course, go take it). 
 
-I'm trying to address the eternal VM issues that plague both the students and TAs by creating a containerized ROS environment preloaded with the dependencies for the class.
+Over the course of the class, the VMs were a constant annoyance. By creating a containerized CS4750 ROS environment, I hope to allow students to run ROS locally for a more enjoyable experience.
 It's also a great way to use continue using ROS after you've completed the class! 
 
 The container runs ROS Noetic and uses either [noVNC](https://novnc.com/info.html) or [X11 forwarding](https://goteleport.com/blog/x11-forwarding/) for GUI apps (namely RVIZ).
