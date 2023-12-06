@@ -13,21 +13,25 @@ The container runs ROS Noetic and uses either [noVNC](https://novnc.com/info.htm
 - [x] Mac (untested but should work. Let me know if you give it a shot)
 
 # Quick install
-1. Install docker for your system:
+1. Clone this repository (dowload and unzip, or `git clone https://github.com/usedhondacivic/ROS-docker-container.git`)
+  
+2. Install docker for your system:
 https://docs.docker.com/get-docker/
 
-2. Open (or install) VSCode
+3. Open (or install and open) VSCode
 
-3. In VSCode, install the "Dev Containers" extension from Microsoft.
+4. In VSCode, install the "Dev Containers" extension from Microsoft.
 
-4. In VSCode, View -> Command Palette -> (type) Dev Containers: Rebuild and Reopen in Container
+5. In VSCode, View -> Command Palette -> (type) Dev Containers: Rebuild and Reopen in Container
 
-5. Wait patiently, Docker is building your development environment. This step will take several minutes the first time, but will take less than a second on subsequent connections.
+6. Wait patiently, Docker is building your development environment. This step will take several minutes the first time, but will take less than a second on subsequent connections.
 
-6. Open a VSCode terminal (Terminal -> new terminal). It should say `lcl up` on the left hand side. Run `rosrun rviz rviz`.
+7. Open a VSCode terminal (Terminal -> new terminal). It should say `lcl up` on the left hand side. Run `rosrun rviz rviz`.
 
-7. Visit http://localhost:8080/vnc.html to see the system GUI. It's recommended you only use this GUI to interact with GUI applications (RVis) and use the VSCode terminal to run your commands.
+8. Visit http://localhost:8080/vnc.html to see the system GUI. It's recommended you only use this GUI to interact with GUI applications (RVis) and use the VSCode terminal to run your commands.
 It's much faster.
+
+9. You should see RViz open in your browser! Now you can copy your own homework files into homework_ws/src, and they will be immediately available within the container!
 
 Have a need for speed? noVNC is definitely slower than native apps (but still much better than the VMs because it's on your local network).
 You can instead use X11 forwarding to render the GUI apps natively, but it requires more configuration. See the X11 forwarding section below for details on the setup.
