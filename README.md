@@ -24,7 +24,7 @@ This repo was last updated after the Fall '23 Semester! I cannot guarentee it wi
 2. Install docker for your system:
 https://docs.docker.com/get-docker/
 
-3. Open (or install and open) VSCode
+3. Open (or install and open) VSCode and open ROS-docker-container
 
 4. In VSCode, install the "Dev Containers" extension from Microsoft.
 
